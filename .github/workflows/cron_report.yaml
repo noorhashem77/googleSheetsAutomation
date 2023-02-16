@@ -1,8 +1,10 @@
 name: Apple Stock Price
 
 on:
-  schedule:
-    - cron: "0 0 * * MON"
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+  # schedule:
+  #   - cron: "0 0 * * MON"
 
   workflow_dispatch:
 
