@@ -25,4 +25,4 @@ jobs:
         shell: bash
 
       - name: run automation report
-        command: node index.js
+        run: node index.js
