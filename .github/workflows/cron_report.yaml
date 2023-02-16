@@ -1,0 +1,30 @@
+name: Apple Stock Price
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+  # uncomment the two line below and replace with the above two line if you'de like to run the cron job every monday
+  # schedule:
+  #   - cron: "0 0 * * MON"
+
+  workflow_dispatch:
+
+jobs:
+  automation_report:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        if: inputs.node-version != '16.14.2'
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+        shell: bash
+
+      - name: run automation report
+        run: node index.js
