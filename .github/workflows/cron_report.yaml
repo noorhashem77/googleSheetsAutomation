@@ -3,6 +3,8 @@ name: Apple Stock Price
 on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
+
+  # uncomment the two line below and replace with the above two line if you'de like to run the cron job every monday
   # schedule:
   #   - cron: "0 0 * * MON"
 
