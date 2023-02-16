@@ -5,7 +5,7 @@ const getFinancialData = async () => {
   let data = {};
   await axios
     .get(
-      "https://financialmodelingprep.com/api/v3/quote-short/AAPL?apikey=5cf59be73413903184e92a05e972f494"
+      "https://financialmodelingprep.com/api/v3/quote-short/AAPL?apikey=yourApiKeyHere"
     )
     .then(res => {
       let date = new Date().toLocaleDateString();
@@ -28,7 +28,7 @@ const sendDataToGoogleSheets = async () => {
 
   const googleSheets = google.sheets({ version: "v4", auth: client });
 
-  const spreadsheetId = "1nqgEVAjg72pImVeW_UVu1P2ZKJa0qcuyiN-WyF2Ss3s";
+  const spreadsheetId = "yourIdSpeadSheetIdHere";
 
   await googleSheets.spreadsheets.values.append({
     auth,
